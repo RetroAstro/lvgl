@@ -384,8 +384,8 @@ void lv_img_load_img(lv_obj_t * obj, lv_coord_t width, lv_coord_t height, const 
       .header.always_zero = 0,
       .header.w = width,
       .header.h = height,
-      .data_size = width * height * LV_COLOR_DEPTH / 8,
-      .header.cf = LV_COLOR_FORMAT_NATIVE,
+      .data_size = width * height * LV_IMG_PX_SIZE_ALPHA_BYTE,
+      .header.cf = LV_IMG_CF_TRUE_COLOR_ALPHA,
       .data = img_data,
     };
     // LV_IMG_DECLARE(lvgl_img);
