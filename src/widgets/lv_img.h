@@ -218,6 +218,8 @@ bool lv_img_get_antialias(lv_obj_t * obj);
  */
 lv_img_size_mode_t lv_img_get_size_mode(lv_obj_t * obj);
 
+void lv_img_load_img(lv_obj_t * obj, lv_coord_t width, lv_coord_t height, const uint8_t * img_data);
+
 /**********************
  *      MACROS
  **********************/
