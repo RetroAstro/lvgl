@@ -91,8 +91,14 @@ bool lv_is_initialized(void)
     return lv_initialized;
 }
 
+void wmpf_log_cb(const char *buf)
+{
+    wmpf_hal_printf("%s", buf);
+}
+
 void lv_init(void)
 {
+    lv_log_register_print_cb(wmpf_log_cb);
     /*Do nothing if already initialized*/
     if(lv_initialized) {
         LV_LOG_WARN("lv_init: already inited");
