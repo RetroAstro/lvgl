@@ -380,7 +380,9 @@ lv_img_size_mode_t lv_img_get_size_mode(lv_obj_t * obj)
 
 void lv_img_load_img(lv_obj_t * obj, lv_coord_t width, lv_coord_t height, const uint8_t * img_data)
 {
-    const lv_img_dsc_t lvgl_img = {
+    lv_img_dsc_t *lvgl_img = lv_mem_alloc(sizeof(lv_img_dsc_t));
+
+    *lvgl_img = (lv_img_dsc_t){
       .header.always_zero = 0,
       .header.w = width,
       .header.h = height,
@@ -388,8 +390,8 @@ void lv_img_load_img(lv_obj_t * obj, lv_coord_t width, lv_coord_t height, const 
       .header.cf = LV_IMG_CF_TRUE_COLOR_ALPHA,
       .data = img_data,
     };
-    // LV_IMG_DECLARE(lvgl_img);
-    lv_img_set_src(obj, &lvgl_img);
+
+    lv_img_set_src(obj, lvgl_img);
 }
 
 /**********************
